@@ -1,0 +1,5 @@
+<mat-card (click)='printDetails(item)' *ngFor='let item of list | async'>
+  <mat-card-content>
+    {{item.name}}
+  </mat-card-content>
+</mat-card>

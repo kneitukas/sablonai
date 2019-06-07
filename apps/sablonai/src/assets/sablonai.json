@@ -1,0 +1,63 @@
+
+ {
+  "atosotogos" : {
+    "name": "Kasmetinių atostogų prašymas",
+    "isAdmin": true,
+    "fields": [
+      {
+        "fieldName": "date",
+        "defaultValue": "2018.11.04",
+        "isRequired": "true"
+      },
+      {
+        "fieldName": "confirmingPerson",
+        "defaultValue": "Darius Kirna",
+        "isRequired": "true"
+      },
+      {
+        "fieldName": "comment",
+        "defaultValue": "",
+        "isRequired": "false"
+      }
+    ]
+  },
+  "papildomos" : {
+    "name": "Papildomos dienos prašymas",
+    "isAdmin": true,
+    "fields": [
+      {
+        "fieldName": "date",
+        "defaultValue": "2018.11.04",
+        "isRequired": "true"
+      },
+      {
+        "fieldName": "confirmingPerson",
+        "defaultValue": "Nerijus Jankauskas",
+        "isRequired": "true"
+      }
+    ]
+  },
+  "etato" : {
+    "name": "Etato keitimo prašymas",
+    "isAdmin": false,
+    "fields": [
+      {
+        "fieldName": "date",
+        "defaultValue": "2018.11.04",
+        "isRequired": "true"
+      }
+    ]
+  },
+  "mokymosi" : {
+    "name": "Mokymosi atostogų prašymas",
+    "isAdmin": false,
+    "fields": [
+      {
+        "fieldName": "date",
+        "defaultValue": "2018.11.04",
+        "isRequired": "true"
+      }
+    ]
+  }
+ }
+

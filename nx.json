@@ -13,6 +13,15 @@
     },
     "sablonai": {
       "tags": []
+    },
+    "shared": {
+      "tags": []
+    },
+    "my-app-e2e": {
+      "tags": []
+    },
+    "my-app": {
+      "tags": ["app"]
     }
   }
 }
