@@ -1,3 +1,36 @@
-<p>
-  sablonas works!
-</p>
+<form [formGroup]="form" class='wrapper' (ngSubmit)='onSubmit()'>
+  <ng-container *ngFor='let field of fields'>
+
+      <ng-container [ngSwitch]="field.controlType">
+        <mat-form-field appearance='outline' *ngSwitchCase="'date'">
+            <mat-label >{{field.label}}</mat-label>
+            <input [matDatepicker]="picker" matInput  [formControlName]="field.key">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance='outline' *ngSwitchCase="'chip'">
+          <mat-label >{{field.label}}</mat-label>
+          <mat-chip-list #chipList>
+              <mat-chip *ngFor='let person of form.get("confirmingPerson").value'>
+                {{person}}
+              </mat-chip>
+              <input [matAutocomplete]="auto" [matChipInputFor]="chipList"  matInput >
+          </mat-chip-list>
+          <mat-autocomplete  #auto="matAutocomplete" (optionSelected)='fill($event.option.value)'>
+              <mat-option *ngFor="let item of chips" [value]='item'>
+                {{ item }}
+              </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field appearance='outline' *ngSwitchCase="'textbox'">
+            <mat-label >{{field.label}}</mat-label>
+            <input  matInput  [formControlName]="field.key">
+        </mat-form-field>
+
+      </ng-container>
+      <!-- <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div> -->
+  </ng-container>
+  <button class='btn' mat-raised-button>Toliau - Perziureti ir pateikti</button>
+  </form>

@@ -1,7 +1,26 @@
 .mat-card {
   cursor: pointer;
+  width: 100%;
+  margin-bottom: 15px;
 
   &:hover {
     background-color: aliceblue;
   }
 }
+
+.stepper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mat-step-header{
+  &:hover {
+    background-color: #fff;
+  }
+}
+
+.mat-horizontal-stepper-header {
+  margin-bottom: 20px ;
+}
+
+

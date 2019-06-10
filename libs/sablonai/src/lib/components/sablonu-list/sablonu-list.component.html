@@ -1,5 +1,37 @@
-<mat-card (click)='printDetails(item)' *ngFor='let item of list | async'>
+<!-- <mat-card (click)='clicked(item)' *ngFor='let item of list | async ; let i = index'>
+  <mat-card-header>
+     <a [routerLink]="['/sablonai', i ]" [queryParams]="item">{{item.name}}</a>
+  </mat-card-header>
   <mat-card-content>
-    {{item.name}}
+    <app-sablonas *ngIf='state' [sablonas]='item'></app-sablonas>
   </mat-card-content>
 </mat-card>
+
+<router-outlet></router-outlet> -->
+
+
+  <mat-horizontal-stepper class="stepper" #stepper>
+    <mat-step #step1 >
+        <ng-template matStepLabel>Šablonas</ng-template>
+        <mat-card (click)='clicked(item, stepper)' *ngFor='let item  of list | async ; let i = index'>
+            <mat-card-header >
+               {{item.name}}
+            </mat-card-header>
+          </mat-card>
+    </mat-step>
+
+    <mat-step #step2 >
+        <ng-template matStepLabel>Pildymas</ng-template>
+        <app-sablonas (submited)='handleSubmit($event, stepper)' *ngIf='stepper.selected == step2'  [fields]='selected'></app-sablonas>
+      </mat-step>
+
+    <mat-step #step3>
+      <ng-template matStepLabel>Patvirtinimas</ng-template>
+      <app-confirmation *ngIf='stepper.selected == step3' [formData]='submitedForm'></app-confirmation>
+      <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button (click)="stepper.reset()">Reset</button>
+        </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
